@@ -2,11 +2,18 @@
 
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
-*/
+ */
+let principal = 200000;
+console.log(principal);
 
+let interestRate = 0.05;
+console.log(interestRate);
 
+let years = 30;
+console.log(years);
 
-
+let name = 'violeta';
+console.log(name);
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -16,7 +23,11 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
+let monthlyInterestRate = interestRate / 12;
+console.log(monthlyInterestRate);
 
+let periods = years * 12;
+console.log(periods);
 
 
 // 🏡 Task 2: Harder Math
@@ -30,8 +41,14 @@ When your math is correct, monthlyRate will equal 1073.64
 */
 
 
-
-
+// let P = principal;
+// let I = interestRate;
+// let N = periods;
+// M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
+let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+let monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
+console.log(monthlyRate);
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
@@ -39,8 +56,26 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 
+function mortgageCalculator() {
+    // principal = 200000;
+    // interestRate = 0.05;
+    // years = 30;
+    let name = 'Violeta';
+    // monthlyInterestRate = interestRate / 12;
+    // periods = years * 12;
+    // numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+    // denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+    monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
 
 
+    return `${name}, your monthly rate is ${monthlyRate}`;
+
+
+
+}
+console.log(mortgageCalculator());
+
+// mortgageCalculator();
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -49,9 +84,11 @@ For example,
 mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
+function mortgageCalculator(principal, interestRate, years) {
+    return monthlyRate;
+}
 
-
-
+console.log(mortgageCalculator(200000, 0.05, 30));
 
 // 🏡 Task 5: Conditionals
 /* Add another paramter to your function called credit score. This parameter will be a number between 0 and 800 (a credit score).
@@ -60,6 +97,21 @@ Then, add control flow within your function such that IF creditScore is above 74
 */
 
 
+function mortgageCalculator(principal, interestRate, years, creditScore) {
+    var interestRate = 0.05;
+
+    if (creditScore > 740) {
+        let newInterestRate = interestRate - 0.005;
+        console.log(newInterestRate);
+    } else if (creditScore < 660) {
+        let newInterestRate = interestRate + 0.005;
+        console.log(newInterestRate);
+    } else if (creditScore >= 660 && creditScore <= 740) {
+        let newInterestRate = interestRate;
+        console.log(newInterestRate);
+    }
+
+}
 
 
 // 🏡 Task 6: Loops
@@ -78,7 +130,9 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+// function variableInterestRate() {
 
+// }
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
