@@ -143,11 +143,11 @@ variableInterestRate(200000, 0.04, 30);
 function variableInterestRate(principal, interestRate, years) {
 
     let newInterestRate = interestRate - 0.02;
-    let rate = mortgageCalculator(principal, newInterestRate, years);
     let name = "Violeta";
     for (let i = 0; i < 9; i++) {
-        newInterestRate += 0.005;
+        let rate = mortgageCalculator(principal, newInterestRate, years);
         console.log(name + ", with an interest rate of " + parseFloat(newInterestRate.toFixed(3)) + ", your monthly rate is $" + Math.round(rate));
+        newInterestRate += 0.005;
     }
 
 }
