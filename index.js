@@ -3,17 +3,17 @@
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
  */
-let principal = 200000;
-console.log(principal);
+// var principal = 200000;
+// console.log(principal);
 
-let interestRate = 0.05;
-console.log(interestRate);
+// var interestRate = 0.05;
+// console.log(interestRate);
 
-let years = 30;
-console.log(years);
+// var years = 30;
+// console.log(years);
 
-let name = 'violeta';
-console.log(name);
+// var name = 'violeta';
+// console.log(name);
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -23,11 +23,11 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
-let monthlyInterestRate = interestRate / 12;
-console.log(monthlyInterestRate);
+// var monthlyInterestRate = interestRate / 12;
+// console.log(monthlyInterestRate);
 
-let periods = years * 12;
-console.log(periods);
+// var periods = years * 12;
+// console.log(periods);
 
 
 // 🏡 Task 2: Harder Math
@@ -45,10 +45,10 @@ When your math is correct, monthlyRate will equal 1073.64
 // let I = interestRate;
 // let N = periods;
 // M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
-let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
-let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
-let monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
-console.log(monthlyRate);
+// var numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+// var denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+// var monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
+// console.log(monthlyRate);
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
@@ -56,24 +56,24 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 
-function mortgageCalculator() {
-    // principal = 200000;
-    // interestRate = 0.05;
-    // years = 30;
-    let name = 'Violeta';
-    // monthlyInterestRate = interestRate / 12;
-    // periods = years * 12;
-    // numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
-    // denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
-    monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
+// function mortgageCalculator() {
+//     principal = 200000;
+//     interestRate = 0.05;
+//     years = 30;
+//     name = 'Violeta';
+//     monthlyInterestRate = interestRate / 12;
+//     periods = years * 12;
+//     numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+//     denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+//     monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
 
 
-    return `${name}, your monthly rate is ${monthlyRate}`;
+//     return `${name}, your monthly rate is ${monthlyRate}`;
 
 
 
-}
-console.log(mortgageCalculator());
+// }
+// console.log(mortgageCalculator());
 
 // mortgageCalculator();
 
@@ -85,6 +85,14 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
 function mortgageCalculator(principal, interestRate, years) {
+    // let principal = 200000;
+    // let interestRate = 0.05;
+    // let years = 30;
+    let monthlyInterestRate = interestRate / 12;
+    let periods = years * 12;
+    let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+    let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+    let monthlyRate = Math.round(principal * (numerator / denominator) * 100) / 100;
     return monthlyRate;
 }
 
@@ -97,21 +105,17 @@ Then, add control flow within your function such that IF creditScore is above 74
 */
 
 
-function mortgageCalculator(principal, interestRate, years, creditScore) {
-    var interestRate = 0.05;
+// function mortgageCalculator(principal, interestRate, years, creditScore) {
+//     let monthlyInterestRate = interestRate / 12;
+//     if (creditScore > 740) {
+//         monthlyInterestRate -= 0.005;
+//     } else if (creditScore < 660) {
+//         monthlyInterestRate += 0.005;
+//     } else if (creditScore >= 660 && creditScore <= 740) {
+//         monthlyInterestRate = monthlyInterestRate;
+//     }
 
-    if (creditScore > 740) {
-        let newInterestRate = interestRate - 0.005;
-        console.log(newInterestRate);
-    } else if (creditScore < 660) {
-        let newInterestRate = interestRate + 0.005;
-        console.log(newInterestRate);
-    } else if (creditScore >= 660 && creditScore <= 740) {
-        let newInterestRate = interestRate;
-        console.log(newInterestRate);
-    }
-
-}
+// }
 
 
 // 🏡 Task 6: Loops
@@ -129,10 +133,25 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.055, your monthly rate is $1136"
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
+// monthly payment for 10 different interest rates at 0.5% increments 
+// plus or minus 2% from the inputted interest rate. 
+// Complete these calculations using a for loop.
+// console.log(variableInterestRate(200000, 0.04, 30));
 
-// function variableInterestRate() {
+variableInterestRate(200000, 0.04, 30);
 
-// }
+function variableInterestRate(principal, interestRate, years) {
+
+    let newInterestRate = interestRate - 0.02;
+    let rate = mortgageCalculator(principal, newInterestRate, years);
+    let name = "Violeta";
+    for (let i = 0; i < 9; i++) {
+        newInterestRate += 0.005;
+        console.log(name + ", with an interest rate of " + parseFloat(newInterestRate.toFixed(3)) + ", your monthly rate is $" + Math.round(rate));
+    }
+
+}
+
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
